@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head th:replace="fragments :: head"></head>
+    <body class="container">
+        <h1 th:text="${title}">Default Title</h1>
+
+        <nav th:replace="fragments :: navigation"></nav>
+        <br/>
+
+        <!--<label th:for="name">Menu Name</label>-->
+        <form method="post" style="max-width:600px;" th:object="${menu}">
+
+            <label>Cheeses</label>
+            <select name="cheeseId">
+                <option th:each="cheese : ${cheeses}"
+                        th:value="${cheese.id}"
+                        th:text="${cheese.name}"></option>
+            </select>
+
+            <!--<table class="table">-->
+            <!--<tr>-->
+            <!--<th>Add</th>-->
+            <!--<th>Cheese Name</th>-->
+            <!--<th>Description</th>-->
+            <!--<th>Category</th>-->
+            <!--</tr>-->
+            <!--<tr th:each="cheese : ${cheeses}" >-->
+            <!--<td>-->
+            <!--<input type="checkbox"-->
+            <!--name="cheeseIds"-->
+            <!--th:value="${cheese.id}"-->
+            <!--th:id="${cheese.id}"/>-->
+            <!--</td>-->
+            <!--<td th:for="${cheese.id}"-->
+            <!--th:text="${cheese.name}">-->
+            <!--</td>-->
+            <!--<td th:for="${cheese.id}"-->
+            <!--th:text="${cheese.description}">-->
+            <!--</td>-->
+            <!--<td th:for="${cheese.id}"-->
+            <!--th:text="${cheese.category.name}">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--</table>-->
+
+            <br/>
+            <br/>
+            <input type="submit" value="Add Cheese" />
+        </form>
+
+
+        <!--<h3 th:text="${test}"></h3>-->
+
+    </body>
+</html>
